@@ -19,6 +19,7 @@
 		69DC0E39269D963100F4F542 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DC0E38269D963100F4F542 /* VideoPlayerViewController.swift */; };
 		69DC0E3B269D966300F4F542 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DC0E3A269D966300F4F542 /* NewConversationViewController.swift */; };
 		69DC0E3D269D968A00F4F542 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DC0E3C269D968A00F4F542 /* ProfileViewController.swift */; };
+		69DC0E40269DA63300F4F542 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DC0E3F269DA63300F4F542 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		69DC0E38269D963100F4F542 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		69DC0E3A269D966300F4F542 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		69DC0E3C269D968A00F4F542 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		69DC0E3F269DA63300F4F542 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../../../../../Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				69DC0E1C269D904100F4F542 /* ConversationsViewController.swift */,
-				69DC0E32269D944100F4F542 /* LoginViewController.swift */,
-				69DC0E34269D945D00F4F542 /* RegisterViewController.swift */,
+				69DC0E3E269D99DC00F4F542 /* Login */,
 				69DC0E36269D962900F4F542 /* PhotoViewerViewController.swift */,
 				69DC0E38269D963100F4F542 /* VideoPlayerViewController.swift */,
 				69DC0E3A269D966300F4F542 /* NewConversationViewController.swift */,
@@ -121,6 +122,7 @@
 			children = (
 				69DC0E18269D904100F4F542 /* AppDelegate.swift */,
 				69DC0E1A269D904100F4F542 /* SceneDelegate.swift */,
+				69DC0E3F269DA63300F4F542 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -132,6 +134,15 @@
 				69DC0E23269D904500F4F542 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		69DC0E3E269D99DC00F4F542 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				69DC0E32269D944100F4F542 /* LoginViewController.swift */,
+				69DC0E34269D945D00F4F542 /* RegisterViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				69DC0E3B269D966300F4F542 /* NewConversationViewController.swift in Sources */,
 				69DC0E1D269D904100F4F542 /* ConversationsViewController.swift in Sources */,
 				69DC0E39269D963100F4F542 /* VideoPlayerViewController.swift in Sources */,
+				69DC0E40269DA63300F4F542 /* Extensions.swift in Sources */,
 				69DC0E19269D904100F4F542 /* AppDelegate.swift in Sources */,
 				69DC0E3D269D968A00F4F542 /* ProfileViewController.swift in Sources */,
 				69DC0E1B269D904100F4F542 /* SceneDelegate.swift in Sources */,
@@ -360,7 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_FILE = Messenger/Controllers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Messenger/Info.plist;
+				INFOPLIST_FILE = Messenger/Controllers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
