@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class LoginViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "logo2")
+        imageView.image = UIImage(named: "logo")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -119,17 +120,46 @@ class LoginViewController: UIViewController {
         passwordField.resignFirstResponder()
         
         guard let email = emailField.text, let password = passwordField.text,
-              !email.isEmpty, !password.isEmpty, password.count >= 6  else {
+              !email.isEmpty, !password.isEmpty  else {
             alertUserLoginError()
             return
         }
         
-        // firebase log in
+        guard password.count >= 6 else {
+            alertPasswordError()
+            return
+        }
+        
+        //MARK: - Firebase log in
+        Firebase.Auth.auth().signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let result = authResult, error == nil else {
+                print("Faled to log in with email \(email)")
+                return
+            }
+            
+            let user = result.user
+            print("Logged in User \(user)")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func alertUserLoginError() {
         let alert = UIAlertController(title: "Woops",
                                       message: "Please enter all information to log in",
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dissmis", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
+    }
+    
+    func alertPasswordError() {
+        
+        let alert = UIAlertController(title: "Woops",
+                                      message: "Password must contain at least 6 characters",
                                       preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Dissmis", style: .cancel, handler: nil))
