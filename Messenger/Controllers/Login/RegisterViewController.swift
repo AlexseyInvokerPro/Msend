@@ -186,14 +186,15 @@ class RegisterViewController: UIViewController {
               !firstName.isEmpty,
               !lastName.isEmpty,
               !email.isEmpty,
-              !password.isEmpty, password.count >= 6  else {
+              !password.isEmpty,
+              password.count >= 6  else {
             alertUserLoginError()
             return
         }
         
         //MARK: - Firebase log in
         
-        DatabaseManager.shared.UserExists(with: email) { [weak self] exist in
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exist in
             guard let strongSelf = self else {
                 return
             }
@@ -203,8 +204,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            Firebase.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-                
+            Firebase.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
                 guard authResult != nil, error == nil else {
                     print("Error cureating user")
                     return
@@ -215,8 +215,8 @@ class RegisterViewController: UIViewController {
                                                                     emailAdress: email))
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-            }
-        }
+            })
+        })
     }
     
     func alertUserLoginError(message: String = "Please enter all information to create a new accout") {
